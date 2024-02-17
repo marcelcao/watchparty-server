@@ -1,0 +1,38 @@
+[
+  {
+      "model": "watchpartyapi.user",
+      "pk": 1,
+      "fields": {
+          "first_name": "Jen",
+          "last_name": "Lee",
+          "username": "jlee30",
+          "image_url": "https://cdn.britannica.com/45/5645-050-B9EC0205/head-treasure-flower-disk-flowers-inflorescence-ray.jpg",
+          "bio": "Lover of TV shows and Nature",
+          "uid": "123456"
+      }
+  },
+  {
+    "model": "watchpartyapi.user",
+    "pk": 2,
+    "fields": {
+        "first_name": "Michael",
+        "last_name": "Walden",
+        "username": "tvlover78",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNice.svg/1920px-SNice.svg.png",
+        "bio": "I'm Michael and I'm a self-taught dev who loves fantasy and sci-fi shows!",
+        "uid": "654321"
+    }
+  },
+  {
+    "model": "watchpartyapi.user",
+    "pk": 3,
+    "fields": {
+        "first_name": "Gina",
+        "last_name": "Santos",
+        "username": "ggsan",
+        "image_url": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "bio": "Gina. 23. Nashville",
+        "uid": "67890"
+    }
+  }
+]

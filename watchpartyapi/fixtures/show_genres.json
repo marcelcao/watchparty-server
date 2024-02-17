@@ -1,0 +1,107 @@
+[
+  {
+      "model": "watchpartyapi.showgenre",
+      "pk": 1,
+      "fields": {
+          "genre": "Action"
+      }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 2,
+    "fields": {
+        "genre": "Animated"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 3,
+    "fields": {
+        "genre": "Comedy"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 4,
+    "fields": {
+        "genre": "Children's"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 5,
+    "fields": {
+        "genre": "Cooking"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 6,
+    "fields": {
+        "genre": "Drama"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 7,
+    "fields": {
+        "genre": "Documentary"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 8,
+    "fields": {
+        "genre": "Fantasy"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 9,
+    "fields": {
+        "genre": "Game Show"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 10,
+    "fields": {
+        "genre": "International"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 11,
+    "fields": {
+        "genre": "News"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 12,
+    "fields": {
+        "genre": "Reality"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 13,
+    "fields": {
+        "genre": "Sci-Fi"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 14,
+    "fields": {
+        "genre": "Variety"
+    }
+  },
+  {
+    "model": "watchpartyapi.showgenre",
+    "pk": 15,
+    "fields": {
+        "genre": "Other"
+    }
+  }
+]
