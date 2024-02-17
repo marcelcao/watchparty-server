@@ -15,7 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
+from rest_framework import routers
+from watchpartyapi.views import check_user, register_user
+from watchpartyapi.views import PartyView
+from watchpartyapi.views import PartyAttendeeView
+from watchpartyapi.views import ShowGenreView
+from watchpartyapi.views import ShowView
+from watchpartyapi.views import UserView
+
+
+router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'parties', PartyView, 'party')
+router.register(r'partyattendees', PartyAttendeeView, 'partyattendee')
+router.register(r'showgenres', ShowGenreView, 'showgenre')
+router.register(r'shows', ShowView, 'show')
+router.register(r'users', UserView, 'user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+    path('checkuser', check_user),
+    path('registeruser', register_user),
 ]
