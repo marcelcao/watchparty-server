@@ -5,5 +5,5 @@ class ShowSerializer(serializers.ModelSerializer):
   """JSON serializer for tv shows"""
   class Meta:
     model = Show
-    fields = ('id', 'user', 'show_title', 'sow_description', 'show_poster', 'show_genre', 'is_watching')
+    fields = ('id', 'user', 'show_title', 'show_description', 'show_poster', 'show_genre', 'is_watching')
     depth = 1
