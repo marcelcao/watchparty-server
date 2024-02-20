@@ -1,0 +1,38 @@
+[
+  {
+      "model": "watchpartyapi.show",
+      "pk": 1,
+      "fields": {
+          "user": 1,
+          "show_title": "Breaking Bad (Season 3)",
+          "show_description": "Mild-mannered high school chemistry teacher Walter White thinks his life can't get much worse. His salary barely makes ends meet, a situation not likely to improve once his pregnant wife gives birth, and their teenage son is battling cerebral palsy. But Walter is dumbstruck when he learns he has terminal cancer. Realizing that his illness probably will ruin his family financially, Walter makes a desperate bid to earn as much money as he can in the time he has left by turning an old RV into a meth lab on wheels.",
+          "show_poster": "https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_.jpg",
+          "show_genre": "6",
+          "is_watching": true
+      }
+  },
+  {
+    "model": "watchpartyapi.show",
+    "pk": 2,
+    "fields": {
+          "user": 2,
+          "show_title": "Game of Thrones (Season 7)",
+          "show_description": "The penultimate season focuses on the convergence of the show's main plots in preparation for the final season. Daenerys Targaryen arrives in Westeros with her army and three large dragons and begins to wage war against the Lannisters, who have defeated her allies in the south and west of Westeros.",
+          "show_poster": "https://upload.wikimedia.org/wikipedia/en/9/92/Game_of_Thrones_Season_7.png",
+          "show_genre": "8",
+          "is_watching": true
+    }
+  },
+  {
+    "model": "watchpartyapi.show",
+    "pk": 3,
+    "fields": {
+        "user": 3,
+        "show_title": "The Other Two (Season 1)",
+        "show_description": "The Other Two is an American comedy television series created by Chris Kelly and Sarah Schneider. The story follows two floundering millennial siblings who must grapple with their 13-year-old brother's overnight fame.",
+        "show_poster": "https://upload.wikimedia.org/wikipedia/en/6/6f/The_Other_Two_season_2.png",
+        "show_genre": "3",
+        "is_watching": true
+    }
+  }
+]

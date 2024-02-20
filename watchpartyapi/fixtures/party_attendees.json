@@ -1,0 +1,50 @@
+[
+  {
+      "model": "watchpartyapi.partyattendee",
+      "pk": 1,
+      "fields": {
+          "user": 1,
+          "party": 1
+      }
+  },
+  {
+    "model": "watchpartyapi.partyattendee",
+    "pk": 2,
+    "fields": {
+          "user": 2,
+          "party": 1
+    }
+  },
+  {
+    "model": "watchpartyapi.partyattendee",
+    "pk": 3,
+    "fields": {
+          "user": 3,
+          "party": 1
+    }
+  },
+  {
+    "model": "watchpartyapi.partyattendee",
+    "pk": 4,
+    "fields": {
+          "user": 1,
+          "party": 2
+    }
+  },
+  {
+    "model": "watchpartyapi.partyattendee",
+    "pk": 5,
+    "fields": {
+          "user": 3,
+          "party": 2
+    }
+  },
+  {
+    "model": "watchpartyapi.partyattendee",
+    "pk": 6,
+    "fields": {
+          "user": 1,
+          "party": 3
+    }
+  }
+]

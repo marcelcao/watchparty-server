@@ -1,0 +1,41 @@
+[
+  {
+      "model": "watchpartyapi.party",
+      "pk": 1,
+      "fields": {
+          "party_name": "Breaking Bad Rewatch",
+          "party_description": "Join me in this rewatch party!",
+          "discord_link": "https://discord.gg/WWopPV",
+          "organizer": 1,
+          "date": "2024-02-25",
+          "time": "20:00",
+          "tv_show": 1
+      }
+  },
+  {
+    "model": "watchpartyapi.party",
+    "pk": 2,
+    "fields": {
+        "party_name": "Winter is Coming",
+        "party_description": "Let's all watch the last season of GOT",
+        "discord_link": "https://discord.gg/pPPoM",
+        "organizer": 2,
+        "date": "2024-03-18",
+        "time": "18:00",
+        "tv_show": 2
+    }
+  },
+  {
+    "model": "watchpartyapi.party",
+    "pk": 3,
+    "fields": {
+        "party_name": "LMFAO",
+        "party_description": "Comedy Night with The Other Two",
+        "discord_link": "https://discord.gg/mmnuPM",
+        "organizer": 3,
+        "date": "2024-03-21",
+        "time": "22:00",
+        "tv_show": 3
+    }
+  }
+]
