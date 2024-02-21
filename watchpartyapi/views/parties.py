@@ -41,9 +41,10 @@ class PartyView(ViewSet):
     organizer = User.objects.get(uid=request.data["organizer"])
     tv_show = Show.objects.get(pk=request.data["tvShow"])
     
-    party = Show.objects.create(
+    party = Party.objects.create(
       organizer = organizer,
       party_name = request.data["partyName"],
+      party_description = request.data["partyDescription"],
       discord_link = request.data["discordLink"],
       date = request.data["date"],  
       time = request.data["time"],
