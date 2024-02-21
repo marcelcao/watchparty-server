@@ -84,3 +84,11 @@ class ShowView(ViewSet):
       show.is_watching = False
       show.save()
       return Response({'status': 'TV show marked as watched'}, status=status.HTTP_200_OK)
+  
+  @action(methods=['PATCH'], detail=True)
+  def watching(self, request, pk=None):
+      """Custom action to mark a show as still watching"""
+      show = Show.objects.get(pk=pk)
+      show.is_watching = True
+      show.save()
+      return Response({'status': 'TV show marked as watched'}, status=status.HTTP_200_OK)
