@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import action
 from watchpartyapi.models import User, Show, PartyAttendee, Party
-from watchpartyapi.serializers import PartySerializer
+from watchpartyapi.serializers import PartySerializer, PartyAttendeeSerializer
 
 class PartyView(ViewSet):
 
@@ -16,7 +16,7 @@ class PartyView(ViewSet):
     """Handles GET request for watch party"""
     
     try:
-      party = Party.objects.get(pk=pk)
+      party = Party.objects.get(pk=pk)    
       serializer = PartySerializer(party)
       return Response(serializer.data)
     except Party.DoesNotExist as ex:
@@ -96,3 +96,12 @@ class PartyView(ViewSet):
       )
       attendee.delete()
       return Response({'message': 'You left the party'}, status=status.HTTP_204_NO_CONTENT)
+    
+  @action(methods=['get'], detail=True)
+  def attendees(self, request, pk):
+    """Method to get all the attendees in an associated party"""
+    attendees = PartyAttendee.objects.all()
+    associated_party = attendees.filter(party_id=pk)
+    
+    serializer = PartyAttendeeSerializer(associated_party, many=True)
+    return Response(serializer.data)
