@@ -9,11 +9,11 @@ class Party(models.Model):
     date = models.DateField(auto_now=False, auto_now_add=False)
     time = models.TimeField()
     tv_show = models.ForeignKey(Show, on_delete=models.CASCADE)
-    
+
     @property
     def attended(self):
-        return self.__attended
-
+            return self.__attended
+    
     @attended.setter
     def attended(self, value):
-        self.__attended = value
+            self.__attended = value

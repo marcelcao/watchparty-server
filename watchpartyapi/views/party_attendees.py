@@ -27,3 +27,9 @@ class PartyAttendeeView(ViewSet):
     party_attendee = PartyAttendee.objects.all()
     serializer = PartyAttendeeSerializer(party_attendee, many=True)
     return Response(serializer.data)
+
+  def destroy(self, request, pk):
+    """Handles DELETE request for party attendee"""
+    party_attendee = PartyAttendee.objects.get(pk=pk)
+    party_attendee.delete()
+    return Response(None, status=status.HTTP_204_NO_CONTENT)

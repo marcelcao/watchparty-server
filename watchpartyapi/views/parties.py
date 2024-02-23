@@ -25,8 +25,18 @@ class PartyView(ViewSet):
   def list(self, request):
     """Handles GET request for all watch parties in database"""
     
-    party = Party.objects.all()
-    serializer = PartySerializer(party, many=True)
+    parties = Party.objects.all()
+    
+    uid = request.META['HTTP_AUTHORIZATION']  
+    user = User.objects.get(uid=uid)
+      
+    for party in parties:
+      party.attended = len(PartyAttendee.objects.filter(
+        user_id=user,
+        party_id=party
+      )) > 0
+    
+    serializer = PartySerializer(parties, many=True)
     return Response(serializer.data)
   
   def destroy(self, request, pk):
@@ -72,30 +82,6 @@ class PartyView(ViewSet):
     serializer = PartySerializer(party)
     return Response (serializer.data, status=status.HTTP_200_OK)
 
-  @action(methods=['post'], detail=True)
-  def attend(self, request, pk):
-      """Post request for a user to attend a watch party"""
-
-      user = User.objects.get(uid=request.META['HTTP_AUTHORIZATION'])
-      party = Party.objects.get(pk=pk)
-      PartyAttendee.objects.create(
-          user=user,
-          party=party
-      )
-      return Response({'message': 'Party Joined!'}, status=status.HTTP_201_CREATED)
-      
-  @action(methods=['delete'], detail=True)
-  def leave(self, request, pk):
-      """User Request to unjoin a watch party"""
-
-      user = User.objects.get(uid=request.META['HTTP_AUTHORIZATION'])
-      party = Party.objects.get(pk=pk)
-      attendee = PartyAttendee.objects.get(
-          user=user,
-          party=party
-      )
-      attendee.delete()
-      return Response({'message': 'You left the party'}, status=status.HTTP_204_NO_CONTENT)
     
   @action(methods=['get'], detail=True)
   def attendees(self, request, pk):
@@ -105,3 +91,28 @@ class PartyView(ViewSet):
     
     serializer = PartyAttendeeSerializer(associated_party, many=True)
     return Response(serializer.data)
+  
+  @action(methods=['post'], detail=True)
+  def attend(self, request, pk):
+    """Post request for user to attend watch party"""
+    
+    user = User.objects.get(uid=request.META['HTTP_AUTHORIZATION'])
+    party = Party.objects.get(pk=pk)
+    party_attendee = PartyAttendee.objects.create(
+      user=user,
+      party=party
+    )
+    return Response({'message': 'Party Joined!'}, status=status.HTTP_201_CREATED)
+  
+  @action(methods=['delete'], detail=True)
+  def leave(self, request, pk):
+    """Delete request to leave a party"""
+    
+    user = User.objects.get(uid=request.META['HTTP_AUTHORIZATION'])
+    party = Party.objects.get(pk=pk)
+    party_attendee = PartyAttendee.objects.get(
+      user_id=user.id,
+      party_id=party.id
+    )
+    party_attendee.delete()
+    return Response(None, status=status.HTTP_204_NO_CONTENT)
