@@ -135,7 +135,7 @@ class PartyView(ViewSet):
   def view_comments(self, request, pk):
     """Method to get all the comments associated to a single party"""
     comments = PartyComment.objects.all()
-    associated_party = comments.filter(post_id=pk)
+    associated_party = comments.filter(party_id=pk)
     
     serializer = PartyCommentSerializer(associated_party, many=True)
     return Response(serializer.data)
