@@ -3,3 +3,4 @@ from .party_serializer import PartySerializer
 from .show_genre_serializer import ShowGenreSerializer
 from .show_serializer import ShowSerializer
 from .user_serializer import UserSerializer
+from .party_comment_serializer import PartyCommentSerializer

@@ -5,8 +5,8 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import action
-from watchpartyapi.models import User, Show, PartyAttendee, Party
-from watchpartyapi.serializers import PartySerializer, PartyAttendeeSerializer
+from watchpartyapi.models import User, Show, PartyAttendee, Party, PartyComment
+from watchpartyapi.serializers import PartySerializer, PartyAttendeeSerializer, PartyCommentSerializer
 
 class PartyView(ViewSet):
 
@@ -40,7 +40,7 @@ class PartyView(ViewSet):
     return Response(serializer.data)
   
   def destroy(self, request, pk):
-    """Handles DELETE request for order"""
+    """Handles DELETE request for party"""
     party = Party.objects.get(pk=pk)
     party.delete()
     return Response(None, status=status.HTTP_204_NO_CONTENT)
@@ -118,3 +118,24 @@ class PartyView(ViewSet):
     )
     party_attendee.delete()
     return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+  @action(methods=['post'], detail=True)
+  def post_comment(self, request, pk):
+    """Method to post a comment on a single party"""
+    author = User.objects.get(uid=request.data["author"])
+    party = Party.objects.get(pk=pk)
+    party_comment = PartyComment.objects.create(
+      author=author,
+      party=party,
+      comment=request.data["comment"]
+    )
+    return Response({'message': 'Comment posted!'}, status=status.HTTP_201_CREATED)
+  
+  @action(methods=['get'], detail=True)
+  def view_comments(self, request, pk):
+    """Method to get all the comments associated to a single party"""
+    comments = PartyComment.objects.all()
+    associated_party = comments.filter(post_id=pk)
+    
+    serializer = PartyCommentSerializer(associated_party, many=True)
+    return Response(serializer.data)

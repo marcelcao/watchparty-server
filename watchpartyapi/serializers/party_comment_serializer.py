@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from watchpartyapi.models import Party, User, PartyComment
+from watchpartyapi.models import PartyComment
 
-class PartySerializer(serializers.ModelSerializer):
+class PartyCommentSerializer(serializers.ModelSerializer):
   """JSON serializer for party comments"""
   class Meta:
-    model = Party
+    model = PartyComment
     fields = ('id', 'author', 'party', 'comment', 'posted_on')
     depth = 1
