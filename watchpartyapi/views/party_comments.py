@@ -37,6 +37,13 @@ class PartyCommentsView(ViewSet):
   def update(self, request, pk):
     """Handle PUT requests for a comment in party"""
     party_comment = PartyComment.objects.get(pk=pk)
+    
+    author = User.objects.get(uid=request.data["uid"])
+    party_comment.author = author
+    
+    party = Party.objects.get(pk=request.data["party"])
+    party_comment.party = party
+    
     party_comment.comment = request.data["comment"]
     party_comment.save()
 
