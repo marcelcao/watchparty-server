@@ -23,6 +23,7 @@ from watchpartyapi.views import PartyAttendeeView
 from watchpartyapi.views import ShowGenreView
 from watchpartyapi.views import ShowView
 from watchpartyapi.views import UserView
+from watchpartyapi.views import PartyCommentsView
 
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -31,6 +32,7 @@ router.register(r'partyattendees', PartyAttendeeView, 'partyattendee')
 router.register(r'showgenres', ShowGenreView, 'showgenre')
 router.register(r'shows', ShowView, 'show')
 router.register(r'users', UserView, 'user')
+router.register(r'partycomments', PartyCommentsView, 'partycomment')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

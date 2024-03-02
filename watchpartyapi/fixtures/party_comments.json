@@ -1,0 +1,52 @@
+[
+  {
+      "model": "watchpartyapi.partycomment",
+      "pk": 1,
+      "fields": {
+          "author": 2,
+          "party": 1,
+          "comment": "Wow, that episode was crazy!!!",
+          "posted_on": "2024-02-25"
+      }
+  },
+  {
+    "model": "watchpartyapi.partycomment",
+    "pk": 2,
+    "fields": {
+        "author": 3,
+        "party": 1,
+        "comment": "I know right, I can't believe it!!!",
+        "posted_on": "2024-02-26"
+    }
+  },
+  {
+    "model": "watchpartyapi.partycomment",
+    "pk": 3,
+    "fields": {
+        "author": 1,
+        "party": 2,
+        "comment": "Didn't think I'd be watching this season finale, lol",
+        "posted_on": "2024-02-26"
+    }
+  },
+  {
+    "model": "watchpartyapi.partycomment",
+    "pk": 4,
+    "fields": {
+        "author": 3,
+        "party": 2,
+        "comment": "I've already seen this so I'm here for the reactions!",
+        "posted_on": "2024-02-27"
+    }
+  },
+  {
+    "model": "watchpartyapi.partycomment",
+    "pk": 5,
+    "fields": {
+        "author": 2,
+        "party": 3,
+        "comment": "THIS SHOW IS HILARIOUS!!",
+        "posted_on": "2024-02-24"
+    }
+  }
+]
