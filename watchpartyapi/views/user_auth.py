@@ -60,3 +60,24 @@ def register_user(request):
         'uid': user.uid
     }
     return Response(data)
+
+@api_view(['POST'])
+def get_username(request):
+    username = request.data['username']
+
+    user = User.objects.filter(username=username).first()
+    
+    if user is not None:
+        data = {
+            'id': user.id,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'username': user.username,
+            'image_url': user.image_url,
+            'bio': user.bio,
+            'uid': user.uid
+        }
+        return Response(data)
+    else:
+        data = { 'valid': False }
+        return Response(data)

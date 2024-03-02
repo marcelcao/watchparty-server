@@ -139,3 +139,30 @@ class PartyView(ViewSet):
     
     serializer = PartyCommentSerializer(associated_party, many=True)
     return Response(serializer.data)
+  
+  @action(methods=['get'], detail=False)
+  def get_user_parties(self, request):
+      """Method to get a user's parties for the profile page"""
+      
+      uid = request.META['HTTP_AUTHORIZATION']
+      
+      if not uid:
+          return Response({"error": "Authorization Error"}, status=status.HTTP_400_BAD_REQUEST)
+      
+      try:
+          user = User.objects.get(uid=uid)
+      except User.DoesNotExist:
+          return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+      
+
+      parties = Party.objects.filter(organizer=user)
+      
+      for party in parties:
+        party.attended = len(PartyAttendee.objects.filter(
+          user_id=user,
+          party_id=party
+        )) > 0
+      
+          
+      serializer = PartySerializer(parties, many=True)
+      return Response(serializer.data, status=status.HTTP_200_OK)
