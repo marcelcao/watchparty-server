@@ -6,4 +6,4 @@ class PartyComment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     party = models.ForeignKey(Party, on_delete=models.CASCADE)
     comment = models.CharField(max_length=600)
-    posted_on = models.DateField(auto_now_add=True)
+    posted_on = models.DateField(auto_now=True)

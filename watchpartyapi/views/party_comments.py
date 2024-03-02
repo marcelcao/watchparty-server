@@ -38,13 +38,14 @@ class PartyCommentsView(ViewSet):
     """Handle PUT requests for a comment in party"""
     party_comment = PartyComment.objects.get(pk=pk)
     
-    author = User.objects.get(uid=request.data["uid"])
+    author = User.objects.get(uid=request.data["author"])
     party_comment.author = author
     
     party = Party.objects.get(pk=request.data["party"])
     party_comment.party = party
     
     party_comment.comment = request.data["comment"]
+    party_comment.posted_on = request.data["postedOn"]
     party_comment.save()
 
     return Response(None, status=status.HTTP_204_NO_CONTENT)
