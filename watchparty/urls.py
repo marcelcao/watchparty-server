@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from watchpartyapi.views import check_user, register_user
+from watchpartyapi.views import check_user, register_user, get_username
 from watchpartyapi.views import PartyView
 from watchpartyapi.views import PartyAttendeeView
 from watchpartyapi.views import ShowGenreView
@@ -39,4 +39,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('checkuser', check_user),
     path('registeruser', register_user),
+    path('getusername', get_username),
 ]
