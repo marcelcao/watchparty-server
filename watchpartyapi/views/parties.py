@@ -156,13 +156,6 @@ class PartyView(ViewSet):
       
 
       parties = Party.objects.filter(organizer=user)
-      
-      for party in parties:
-        party.attended = len(PartyAttendee.objects.filter(
-          user_id=user,
-          party_id=party
-        )) > 0
-      
           
       serializer = PartySerializer(parties, many=True)
       return Response(serializer.data, status=status.HTTP_200_OK)
