@@ -118,20 +118,6 @@ class PartyView(ViewSet):
     )
     party_attendee.delete()
     return Response(None, status=status.HTTP_204_NO_CONTENT)
-  
-    
-  @action(methods=['delete'], detail=True)
-  def remove(self, request, pk):
-    """Delete request to remove attendee from party"""
-    user_uid = request.data.get("user")
-    user = User.objects.get(uid=user_uid)
-    party = Party.objects.get(pk=pk)
-    party_attendee = PartyAttendee.objects.get(
-      user_id=user.id,
-      party_id=party.id
-    )
-    party_attendee.delete()
-    return Response(None, status=status.HTTP_204_NO_CONTENT)
 
   @action(methods=['post'], detail=True)
   def post_comment(self, request, pk):
