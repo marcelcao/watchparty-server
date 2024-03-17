@@ -23,6 +23,14 @@ Watch Party is an application for people who want to stay connected with their f
 - Custom CSS
 
 ## Video Walkthrough
+<div>
+    <a href="https://www.loom.com/share/5fc62c71f9064f569f5184949262c528">
+      <p>Watch Party - Full-Stack Capstone - NSS Cohort E23 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/5fc62c71f9064f569f5184949262c528">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/5fc62c71f9064f569f5184949262c528-with-play.gif">
+    </a>
+  </div>
 
 
 ## Relevant Links 
